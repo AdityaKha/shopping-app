@@ -1,0 +1,57 @@
+<h1 mat-dialog-title>Your Cart</h1>
+<div mat-dialog-content>
+	<table id="customers">
+		<tr>
+			<th>Item Name</th>
+			<th>Price</th>
+			<th>Quantity</th>
+		  </tr>
+		<tr *ngFor="let item of items">
+			<td>
+				{{item.itemName}}
+			</td>
+			<td>
+				{{item.value}}
+			</td>
+			<td>
+				{{item.quantity}}
+			</td>
+		</tr>
+
+	</table>
+	<mat-form-field>
+		Total Amount  {{cartValue}}
+	</mat-form-field>
+</div>
+
+  
+  
+<div mat-dialog-actions>
+	<button mat-button (click)="onCancel()">Close</button>
+	<button mat-button [mat-dialog-close] cdkFocusInitial>Buy Now</button>
+</div>
+
+<style>
+#customers {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#customers td, #customers th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#customers tr:nth-child(even){background-color: #f2f2f2;}
+
+#customers tr:hover {background-color: #ddd;}
+
+#customers th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #0430aa;
+  color: white;
+}
+</style>
